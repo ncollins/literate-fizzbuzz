@@ -21,7 +21,7 @@ returns true if the second argument divides into the first.
 
 @chunk[<fb>
        (define (fb n)
-         (local [(define (divides n m) (= 0 (modulo n m)))]
+         (local [(define (divides? n m) (= 0 (modulo n m)))]
            <fb-cond>))]
 
 The main body of the function is a single conditional. If the argument is
@@ -31,9 +31,9 @@ divisible by 15) we return @racket["FizzBuzz"]. If the number is not divisible
 by 3 or 5 then we simply convert the number into a string.
 
 @chunk[<fb-cond>
-       (cond [(divides n 15) "FizzBuzz"]
-             [(divides n 5) "Buzz"]
-             [(divides n 3) "Fizz"]
+       (cond [(divides? n 15) "FizzBuzz"]
+             [(divides? n 5) "Buzz"]
+             [(divides? n 3) "Fizz"]
              [else (number->string n)])]
 
 
